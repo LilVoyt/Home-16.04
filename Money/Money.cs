@@ -45,15 +45,8 @@ namespace Money
         }
         public static void Transaction(Money Reciever, Money Sender, Money amount)
         {
-            Console.WriteLine(Reciever.Value + " += " + Sender.GetGold(amount) + " * " + Reciever.IndexGold);
             Reciever.Value += amount.GetGold(amount) * Reciever.IndexGold;
             Sender.Value -= amount.GetGold(amount) * Sender.IndexGold;
-        }
-        public static void TransactionForCompany(Money Reciever, Money Sender, Money amount)
-        {
-            Console.WriteLine(Reciever.Value + " += " + Sender.GetGold(amount) + " * " + Reciever.IndexGold);
-            Reciever.Value += amount.GetGold(amount) * Reciever.IndexGold;
-            Sender.Value -= Sender.GetGold(amount) * Sender.IndexGold;
         }
     }
 }
