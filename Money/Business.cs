@@ -11,14 +11,13 @@ namespace Money
         public string Name { get; set; }
         public Money account { get; set; }
         public int ItemsNumber { get; set; }
-        public double ValuePerItem { get; set; }
-        public Business(string name, Money account, int itemsNumber, double valuePerItem)
+        public Money ValuePerItem { get; set; }
+        public Business(string name, Money account, int itemsNumber, Money valuePerItem)
         {
             Name = name;
             this.account = account;
             ItemsNumber = itemsNumber;
             ValuePerItem = valuePerItem;
         }
-
     }
 }

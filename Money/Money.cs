@@ -26,28 +26,34 @@ namespace Money
             res = Value / IndexGold;
             return res;
         }
-        public double GetGold(double amount)
+        public double GetGold(Money amount) 
         {
             double res;
-            if(amount > 0 && amount <= Value)
+            if(amount.Value > 0 && amount.Value <= Value)
             {
-                res = amount / IndexGold;
+                res = amount.Value / IndexGold;
                 return res;
             }
-            else if(amount < 0)
+            else if(amount.Value < 0)
             {
                 throw new Exception("Amount of money cannot be < 0!");
             }
-            else if (amount >= Value) { }
+            else if (amount.Value >= Value) { }
             {
                 throw new Exception("No such money on balance!");
             }
         }
-        public static void Exchange(Money Reciever, Money Sender, double amount)
+        public static void Transaction(Money Reciever, Money Sender, Money amount)
         {
             Console.WriteLine(Reciever.Value + " += " + Sender.GetGold(amount) + " * " + Reciever.IndexGold);
-            Reciever.Value += Sender.GetGold(amount) * Reciever.IndexGold;
-            Sender.Value -= amount;
+            Reciever.Value += amount.GetGold(amount) * Reciever.IndexGold;
+            Sender.Value -= amount.GetGold(amount) * Sender.IndexGold;
+        }
+        public static void TransactionForCompany(Money Reciever, Money Sender, Money amount)
+        {
+            Console.WriteLine(Reciever.Value + " += " + Sender.GetGold(amount) + " * " + Reciever.IndexGold);
+            Reciever.Value += amount.GetGold(amount) * Reciever.IndexGold;
+            Sender.Value -= Sender.GetGold(amount) * Sender.IndexGold;
         }
     }
 }
