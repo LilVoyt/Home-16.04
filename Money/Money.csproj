@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business.cs" />
     <Compile Include="Dollar.cs" />
+    <Compile Include="Euro.cs" />
     <Compile Include="Hryvnia.cs" />
     <Compile Include="Money.cs" />
     <Compile Include="Program.cs" />
